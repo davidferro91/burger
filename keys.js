@@ -1,6 +1,6 @@
 exports.MySQL = {
     host: process.env.HOST,
-    port: process.env.PORT,
+    port: process.env.PORTSQL,
     user: process.env.USER,
     password: process.env.PASSWORD,
     database: process.env.DATABASE

@@ -1,3 +1,4 @@
+require("dotenv").config();
 var express = require("express");
 var router = express.Router();
 var burger = require("../models/burger.js");
@@ -5,7 +6,7 @@ var burger = require("../models/burger.js");
 router.get("/", function(req, res) {
     burger.selectAll(function(data) {
         var dataOb = {
-            burger: data
+            burgers: data
         };
         console.log(dataOb);
         res.render("index", dataOb);
@@ -19,9 +20,7 @@ router.post("/api/burgers", function(req, res) {
 });
 
 router.put("/api/burgers/:id", function(req, res) {
-    var condition = {
-        id: req.params.id
-    };
+    var condition = "id = " + req.params.id;
     console.log(condition);
     burger.updateOne(
         {
